@@ -5,19 +5,38 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreBookingRequest;
 use App\Models\Booking;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 // use Illuminate\Http\Request;
 
 class BookingController extends Controller
 {
-    public function storeBooking(StoreBookingRequest $request): RedirectResponse
-    {
-        // 1. Les données sont déjà validées ici grâce à StoreBookingRequest
+    public function AllBooking(): View {
+
+        $bookings = Booking::latest()->get();
+        return view('dashPages.booking.all', compact('bookings'));
+    }
+
+    public function storeBooking(StoreBookingRequest $request): RedirectResponse {
+
         $data = $request->validated();
-
-        // 2. Enregistrement en base de données
         Booking::create($data);
-
-        // 3. Redirection avec un message de succès
         return redirect()->back()->with('success', 'Votre réservation a bien été envoyée !');
+    }
+    
+    public function updateStatusBooking(Booking $booking): RedirectResponse {
+
+        $newStatus = match($booking->status) {
+            'Pas Encore Vu' => 'Répondu',
+            'Répondu' => 'Pas Encore Vu',
+        };
+        $booking->update(['status' => $newStatus]);
+        return redirect()->back()->with('success', 'Statut de '. $booking->first_name .' mis à jour.');
+    }
+
+    public function destroyBooking(string $idBooking): RedirectResponse {
+        
+        $booking = Booking::findOrFail($idBooking);
+        $booking->delete();
+        return redirect()->route('allBooking')->with('success', 'Réservation supprimé avec succès.');
     }
 }

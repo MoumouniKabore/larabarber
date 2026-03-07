@@ -1,4 +1,4 @@
-@extends('dashPages.default.main')
+{{-- @extends('dashPages.default.main')
 
 @section('title')
     Edit Hour
@@ -35,7 +35,7 @@
                                 <option value="08h00 - 20h00">08h00 - 20h00</option>
                                 <option value="09h00 - 18h00">09h00 - 18h00</option>
                                 <option value="09h00 - 19h00">09h00 - 19h00</option>
-                                <option value="12h35 - 21h35">12h35 - 21h35</option>
+                                <option value="12h35 - 21h35">09h00 - 20h00</option>
                                 <option value="Démi-journée">Démi-journée</option>
                                 <option value="Fermé">Fermé</option>
                             </select>
@@ -53,4 +53,4 @@
         </div>
     </div>
     
-@endsection
+@endsection --}}

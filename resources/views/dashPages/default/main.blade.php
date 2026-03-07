@@ -71,9 +71,9 @@
             <div class="nav flex-column h-100">
                 <a href="{{ route('index-dash') }}" class="nav-link @if(Route::currentRouteName() == 'index-dash') active  @endif"><i class="bi bi-grid-1x2-fill"></i> Tableau de bord</a>
                 <a href="{{ route('all-user') }}" class="nav-link @if(Route::currentRouteName() == 'all-user') active  @endif"><i class="bi bi-person-check"></i> Utilisateurs</a>
-                <a href="{{ route('all-barber') }}" class="nav-link @if(Route::currentRouteName() == 'all-barber') active  @endif"><i class="bi bi-person-badge"></i> Coiffeurs</a>
-                <a href="{{ route('all-hour') }}" class="nav-link @if(Route::currentRouteName() == 'all-hour') active  @endif"><i class="bi bi-clock-history"></i> Heures Ouverture</a>
-                <a href="{{ route('all-booking') }}" class="nav-link @if(Route::currentRouteName() == 'all-booking') active  @endif"><i class="bi bi-calendar-check"></i> Réservation</a>
+                <a href="{{ route('barberResource.index') }}" class="nav-link @if(Route::currentRouteName() == 'barberResource.index') active  @endif"><i class="bi bi-person-badge"></i> Coiffeurs</a>
+                <a href="{{ route('allHour') }}" class="nav-link @if(Route::currentRouteName() == 'allHour') active  @endif"><i class="bi bi-clock-history"></i> Heures Ouverture</a>
+                <a href="{{ route('allBooking') }}" class="nav-link @if(Route::currentRouteName() == 'allBooking') active  @endif"><i class="bi bi-calendar-check"></i> Réservation</a>
                 <a href="{{ route('allTestimonie') }}" class="nav-link @if(Route::currentRouteName() == 'allTestimonie') active  @endif"><i class="bi bi-star-fill"></i> Avis Clients</a>
                 <a href="{{ route('allMessage') }}" class="nav-link @if(Route::currentRouteName() == 'allMessage') active  @endif"><i class="bi bi-envelope-paper"></i> Messages</a>
                 
@@ -94,9 +94,9 @@
                 <div class="nav flex-column h-100">
                     <a href="{{ route('index-dash') }}" class="nav-link @if(Route::currentRouteName() == 'index-dash') active  @endif"><i class="bi bi-grid-1x2-fill"></i> Tableau de bord</a>
                     <a href="{{ route('all-user') }}" class="nav-link @if(Route::currentRouteName() == 'all-user') active  @endif"><i class="bi bi-person-check"></i> Utilisateurs</a>
-                    <a href="{{ route('all-barber') }}" class="nav-link @if(Route::currentRouteName() == 'all-barber') active  @endif"><i class="bi bi-person-badge"></i> Coiffeurs</a>
-                    <a href="{{ route('all-hour') }}" class="nav-link @if(Route::currentRouteName() == 'all-hour') active  @endif"><i class="bi bi-clock-history"></i> Heures Ouverture</a>
-                    <a href="{{ route('all-booking') }}" class="nav-link @if(Route::currentRouteName() == 'all-booking') active  @endif"><i class="bi bi-calendar-check"></i> Réservation</a>
+                    <a href="{{ route('barberResource.index') }}" class="nav-link @if(Route::currentRouteName() == 'barberResource.index') active  @endif"><i class="bi bi-person-badge"></i> Coiffeurs</a>
+                    <a href="{{ route('allHour') }}" class="nav-link @if(Route::currentRouteName() == 'allHour') active  @endif"><i class="bi bi-clock-history"></i> Heures Ouverture</a>
+                    <a href="{{ route('allBooking') }}" class="nav-link @if(Route::currentRouteName() == 'allBooking') active  @endif"><i class="bi bi-calendar-check"></i> Réservation</a>
                     <a href="{{ route('allTestimonie') }}" class="nav-link @if(Route::currentRouteName() == 'allTestimonie') active  @endif"><i class="bi bi-star-fill"></i> Avis Clients</a>
                     <a href="{{ route('allMessage') }}" class="nav-link @if(Route::currentRouteName() == 'allMessage') active  @endif"><i class="bi bi-envelope-paper"></i> Messages</a>
                     <div class="mt-auto px-3">

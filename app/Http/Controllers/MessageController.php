@@ -10,7 +10,6 @@ use Illuminate\View\View;
 
 class MessageController extends Controller
 {
-
     public function AllMessage(): View {
 
         $messages = Message::latest()->get();
@@ -24,7 +23,7 @@ class MessageController extends Controller
         return redirect()->back()->with('success', 'Votre message a bien été envoyé !');
     }
     
-    public function updateStatus(Message $message): RedirectResponse {
+    public function updateStatusMessage(Message $message): RedirectResponse {
 
         $newStatus = match($message->status) {
             'Pas Encore Vu' => 'Répondu',

@@ -61,7 +61,7 @@
                                 @endphp
 
                                 {{-- Formulaire pour mettre à jour le statut au clic --}}
-                                <form action="{{ route('updateStatus', $message->id) }}" method="POST">
+                                <form action="{{ route('updateStatusMessage', $message->id) }}" method="POST">
                                     @csrf
                                     @method('PUT')
                                     <button type="submit" class="btn btn-sm btn-{{ $statusColor }} fw-semibold text-white rounded-2 px-3 shadow-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Changer le statut" style="font-size: 0.75rem;">

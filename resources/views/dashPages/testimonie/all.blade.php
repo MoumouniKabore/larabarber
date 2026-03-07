@@ -37,20 +37,14 @@
                         <tr>
                             <td>
                                 <div class="d-flex align-items-center">
-                                    {{-- Avatar dynamique --}}
-                                    @if($testimonie->avatar)
-                                        {{-- L'image existe en base --}}
-                                        <img src="{{ asset('storage/' . $testimonie->avatar) }}" 
-                                            class="rounded-circle me-3 shadow-sm" 
-                                            width="40" height="40" alt="{{ $testimonie->name }}">
-                                        @else
-                                            {{-- Image par défaut si pas d'avatar --}}
-                                            <img src="https://ui-avatars.com/api/?name={{ urlencode($testimonie->name) }}&background=random" 
-                                                class="rounded-circle me-3 shadow-sm" 
-                                                width="40" height="40" alt="{{ $testimonie->name }}">
-                                        @endif
+                                    @if($testimonie->photo)
+                                        <img src="{{ asset('storage/' . $testimonie->photo) }}" class="rounded-circle me-3 shadow-sm" width="40" height="40" style="object-fit: cover;">
+                                    @else
+                                        <img src="https://ui-avatars.com/api/?name={{ urlencode($testimonie->first_name . ' ' . $testimonie->last_name) }}&background=random" class="rounded-circle me-3 shadow-sm" width="40" height="40">
+                                    @endif
                                     <div>
                                         <p class="mb-0 fw-semibold">{{ $testimonie->first_name }} {{ $testimonie->last_name }}</p>
+                                        <span class="text-muted small">{{ $testimonie->email }}</span>
                                     </div>
                                 </div>
                             </td>
@@ -68,7 +62,7 @@
                                 @endphp
 
                                 {{-- Formulaire pour mettre à jour le statut au clic --}}
-                                <form action="{{ route('updateStatus', $testimonie->id) }}" method="POST">
+                                <form action="{{ route('updateStatusTestimonie', $testimonie->id) }}" method="POST">
                                     @csrf
                                     @method('PUT')
                                     <button type="submit" class="btn btn-sm btn-{{ $statusColor }} fw-semibold text-white rounded-2 px-3 shadow-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Changer le statut" style="font-size: 0.75rem;">
@@ -99,7 +93,7 @@
                                         <div class="position-relative d-inline-block mb-3">
                                             @if($testimonie->avatar)
                                                 {{-- L'image existe en base --}}
-                                                <img src="{{ asset('storage/' . $testimonie->avatar) }}" 
+                                                <img src="{{ asset(Storage::url($testimonie->photo)) }}" 
                                                     class="rounded-circle me-3 shadow-sm" 
                                                     width="90" height="90" alt="{{ $testimonie->name }}">
                                             @else

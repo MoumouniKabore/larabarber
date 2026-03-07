@@ -17,7 +17,14 @@ class BarberFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'photo' => null, // Photo null par défaut
+            'first_name' => $this->faker->firstName(),
+            'last_name' => $this->faker->lastName(),
+            'phone' => $this->faker->unique()->phoneNumber(),
+            'email' => $this->faker->unique()->safeEmail(),
+            'address' => $this->faker->address(),
+            'fonction' => $this->faker->randomElement(['Maître Coiffeur', 'Barbier Senior', 'Spécialiste Coloration', 'Apprenti']),
+            'status' => $this->faker->randomElement(['Actif', 'En Attente']),
         ];
     }
 }

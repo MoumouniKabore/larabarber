@@ -5,14 +5,12 @@
 @endsection
 
 @section('dashContent')
-
-    <h1>Add Barber</h1>
     
     <div class="mb-4 d-flex align-items-center justify-content-between">
         <div>
             <h2 class="fw-bold h4 mb-1">Ajouter un coiffeur</h2>
         </div>
-        <a href="{{ route('all-barber') }}" class="btn btn-danger btn-sm rounded-3 px-3 shadow-sm">
+        <a href="{{ route('barberResource.index') }}" class="btn btn-danger btn-sm rounded-3 px-3 shadow-sm">
             <i class="bi bi-arrow-left me-1"></i> Retour
         </a>
     </div>
@@ -20,7 +18,7 @@
     <div class="row justify-content-center g-4">
         <div class="col-lg-8">
             <div class="card p-4">
-                <form action="" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('barberResource.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row g-4">
                         <div class="col-md-6">
@@ -60,7 +58,7 @@
                         </div>
                         <div class="col-12 mt-4">
                             <div class="d-flex justify-content-end gap-2">
-                                <a href="{{ route('all-barber') }}" type="button" class="btn btn-light px-4 rounded-3">Annuler</a>
+                                <a href="{{ route('barberResource.index') }}" type="button" class="btn btn-light px-4 rounded-3">Annuler</a>
                                 <button type="submit" class="btn btn-primary px-4 rounded-3">Enregistrer</button>
                             </div>
                         </div>

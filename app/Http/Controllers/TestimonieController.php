@@ -24,13 +24,13 @@ class TestimonieController extends Controller
             $image = $request->file('photo');
             $filename = time().'.'.$image->getClientOriginalExtension();
             $path = $image->storeAs('testimonie', $filename, 'public');
-            $data['photo_path'] = $path;
+            $data['photo'] = $path;
         }
         Testimonie::create($data);
         return redirect()->back()->with('success', 'Votre avis a bien été envoyé !');
     }
     
-    public function updateStatus(Testimonie $testimonie): RedirectResponse {
+    public function updateStatusTestimonie(Testimonie $testimonie): RedirectResponse {
 
         $newStatus = match($testimonie->status) {
             'Pas Encore Publié' => 'Publié',
