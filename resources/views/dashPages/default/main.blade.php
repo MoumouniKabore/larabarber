@@ -69,13 +69,13 @@
                 <span class="h4 fw-bold text-primary"><i class="bi bi-cpu-fill me-2"></i>NEXUS</span>
             </div>
             <div class="nav flex-column h-100">
-                <a href="{{ route('index-dash') }}" class="nav-link @if(Route::currentRouteName() == 'index-dash') active  @endif"><i class="bi bi-grid-1x2-fill"></i> Tableau de bord</a>
-                <a href="{{ route('all-user') }}" class="nav-link @if(Route::currentRouteName() == 'all-user') active  @endif"><i class="bi bi-person-check"></i> Utilisateurs</a>
-                <a href="{{ route('barberResource.index') }}" class="nav-link @if(Route::currentRouteName() == 'barberResource.index') active  @endif"><i class="bi bi-person-badge"></i> Coiffeurs</a>
-                <a href="{{ route('allHour') }}" class="nav-link @if(Route::currentRouteName() == 'allHour') active  @endif"><i class="bi bi-clock-history"></i> Heures Ouverture</a>
-                <a href="{{ route('allBooking') }}" class="nav-link @if(Route::currentRouteName() == 'allBooking') active  @endif"><i class="bi bi-calendar-check"></i> Réservation</a>
-                <a href="{{ route('allTestimonie') }}" class="nav-link @if(Route::currentRouteName() == 'allTestimonie') active  @endif"><i class="bi bi-star-fill"></i> Avis Clients</a>
-                <a href="{{ route('allMessage') }}" class="nav-link @if(Route::currentRouteName() == 'allMessage') active  @endif"><i class="bi bi-envelope-paper"></i> Messages</a>
+                <a href="{{ route('admin.dashboardIndex') }}" class="nav-link @if(Route::currentRouteName() == 'admin.dashboardIndex') active  @endif"><i class="bi bi-grid-1x2-fill"></i> Tableau de bord</a>
+                <a href="{{ route('admin.userResource.index') }}" class="nav-link @if(Route::currentRouteName() == 'admin.userResource.index') active  @endif"><i class="bi bi-person-check"></i> Utilisateurs</a>
+                <a href="{{ route('admin.barberResource.index') }}" class="nav-link @if(Route::currentRouteName() == 'admin.admin.barberResource.index') active  @endif"><i class="bi bi-person-badge"></i> Coiffeurs</a>
+                <a href="{{ route('admin.allHour') }}" class="nav-link @if(Route::currentRouteName() == 'admin.allHour') active  @endif"><i class="bi bi-clock-history"></i> Heures Ouverture</a>
+                <a href="{{ route('admin.allBooking') }}" class="nav-link @if(Route::currentRouteName() == 'admin.allBooking') active  @endif"><i class="bi bi-calendar-check"></i> Réservation</a>
+                <a href="{{ route('admin.allTestimonie') }}" class="nav-link @if(Route::currentRouteName() == 'admin.allTestimonie') active  @endif"><i class="bi bi-star-fill"></i> Avis Clients</a>
+                <a href="{{ route('admin.allMessage') }}" class="nav-link @if(Route::currentRouteName() == 'admin.allMessage') active  @endif"><i class="bi bi-envelope-paper"></i> Messages</a>
                 
                 <div class="mt-auto px-3">
                     <button class="btn btn-danger w-100 border-0 rounded-3" data-bs-toggle="modal" data-bs-target="#logoutModal">
@@ -92,13 +92,13 @@
             </div>
             <div class="offcanvas-body p-0 py-3">
                 <div class="nav flex-column h-100">
-                    <a href="{{ route('index-dash') }}" class="nav-link @if(Route::currentRouteName() == 'index-dash') active  @endif"><i class="bi bi-grid-1x2-fill"></i> Tableau de bord</a>
-                    <a href="{{ route('all-user') }}" class="nav-link @if(Route::currentRouteName() == 'all-user') active  @endif"><i class="bi bi-person-check"></i> Utilisateurs</a>
-                    <a href="{{ route('barberResource.index') }}" class="nav-link @if(Route::currentRouteName() == 'barberResource.index') active  @endif"><i class="bi bi-person-badge"></i> Coiffeurs</a>
-                    <a href="{{ route('allHour') }}" class="nav-link @if(Route::currentRouteName() == 'allHour') active  @endif"><i class="bi bi-clock-history"></i> Heures Ouverture</a>
-                    <a href="{{ route('allBooking') }}" class="nav-link @if(Route::currentRouteName() == 'allBooking') active  @endif"><i class="bi bi-calendar-check"></i> Réservation</a>
-                    <a href="{{ route('allTestimonie') }}" class="nav-link @if(Route::currentRouteName() == 'allTestimonie') active  @endif"><i class="bi bi-star-fill"></i> Avis Clients</a>
-                    <a href="{{ route('allMessage') }}" class="nav-link @if(Route::currentRouteName() == 'allMessage') active  @endif"><i class="bi bi-envelope-paper"></i> Messages</a>
+                    <a href="{{ route('admin.dashboardIndex') }}" class="nav-link @if(Route::currentRouteName() == 'admin.dashboardIndex') active  @endif"><i class="bi bi-grid-1x2-fill"></i> Tableau de bord</a>
+                    <a href="{{ route('admin.userResource.index') }}" class="nav-link @if(Route::currentRouteName() == 'admin.userResource.index') active  @endif"><i class="bi bi-person-check"></i> Utilisateurs</a>
+                    <a href="{{ route('admin.barberResource.index') }}" class="nav-link @if(Route::currentRouteName() == 'admin.barberResource.index') active  @endif"><i class="bi bi-person-badge"></i> Coiffeurs</a>
+                    <a href="{{ route('admin.allHour') }}" class="nav-link @if(Route::currentRouteName() == 'admin.allHour') active  @endif"><i class="bi bi-clock-history"></i> Heures Ouverture</a>
+                    <a href="{{ route('admin.allBooking') }}" class="nav-link @if(Route::currentRouteName() == 'admin.allBooking') active  @endif"><i class="bi bi-calendar-check"></i> Réservation</a>
+                    <a href="{{ route('admin.allTestimonie') }}" class="nav-link @if(Route::currentRouteName() == 'admin.allTestimonie') active  @endif"><i class="bi bi-star-fill"></i> Avis Clients</a>
+                    <a href="{{ route('admin.allMessage') }}" class="nav-link @if(Route::currentRouteName() == 'admin.allMessage') active  @endif"><i class="bi bi-envelope-paper"></i> Messages</a>
                     <div class="mt-auto px-3">
                         <button class="btn btn-danger w-100 rounded-3">Déconnexion</button>
                     </div>
@@ -124,8 +124,8 @@
                         <div class="dropdown">
                             <div class="d-flex align-items-center" role="button" data-bs-toggle="dropdown">
                                 <div class="text-end me-2 d-none d-sm-block">
-                                    <p class="mb-0 fw-semibold small">Moumouni K.</p>
-                                    <p class="mb-0 text-muted small" style="font-size: 0.7rem;">Admin</p>
+                                    <p class="mb-0 fw-semibold small">{{ Auth::user()->last_name }}</p>
+                                    <p class="mb-0 text-muted small" style="font-size: 0.7rem;">{{ Auth::user()->first_name }}</p>
                                 </div>
                                 <img src="https://ui-avatars.com/api/?name=MK&background=0d6efd&color=fff" class="rounded-circle shadow-sm" width="38" height="38">
                             </div>
@@ -133,7 +133,7 @@
                                 <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#viewUserModal"><i class="bi bi-person me-2"></i>Profil</a></li>
                                 <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i>Paramètres</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item text-danger" href="#">Déconnexion</a></li>
+                                <li><a class="dropdown-item text-danger" href="{{ route('admin.logout') }}">Déconnexion</a></li>
                             </ul>
                         </div>
                     </div>
@@ -157,7 +157,7 @@
                         <h5 class="fw-bold">Déconnexion</h5>
                         <p class="text-muted small">Souhaitez-vous vraiment quitter votre session ?</p>
                         <div class="d-grid gap-2 mt-4">
-                            <a href="#" class="btn btn-primary rounded-3">Se déconnecter</a>
+                            <a href="{{ route('admin.logout') }}" class="btn btn-primary rounded-3">Se déconnecter</a>
                             <button type="button" class="btn btn-light rounded-3" data-bs-dismiss="modal">Rester connecté</button>
                         </div>
                     </div>

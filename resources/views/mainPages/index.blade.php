@@ -374,7 +374,7 @@
                         <p class="section-subtitle">Réservation</p>
                         <h2 class="section-title">Prenez <span>Rendez-vous</span></h2>
                         <div class="booking-form mt-4">
-                            <form action="{{ route('storeBooking') }}" method="POST">
+                            <form action="{{ route('admin.storeBooking') }}" method="POST">
                                 @csrf
                                 <div class="row g-3 mb-4">
                                     <div class="col-md-6">
@@ -574,7 +574,7 @@
                     <h5 class="modal-title" id="modalTitle">Votre Témoignage</h5>
                     <button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="{{ route('storeTestimonie') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.storeTestimonie') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-body">
                         <div class="row g-3">

@@ -24,7 +24,7 @@ class BarberFactory extends Factory
             'email' => $this->faker->unique()->safeEmail(),
             'address' => $this->faker->address(),
             'fonction' => $this->faker->randomElement(['Maître Coiffeur', 'Barbier Senior', 'Spécialiste Coloration', 'Apprenti']),
-            'status' => $this->faker->randomElement(['Actif', 'En Attente']),
+            'status' => $this->faker->randomElement(['Actif', 'Dispensée']),
         ];
     }
 }

@@ -10,7 +10,7 @@
         <div>
             <h2 class="fw-bold h4 mb-1">Liste des Coiffeurs</h2>
         </div>
-        <a href="{{ route('barberResource.create') }}" class="btn btn-primary btn-sm rounded-3 px-3 shadow-sm">
+        <a href="{{ route('admin.barberResource.create') }}" class="btn btn-primary btn-sm rounded-3 px-3 shadow-sm">
             <i class="bi bi-plus-lg me-1"></i> Nouveau
         </a>
     </div>
@@ -41,7 +41,7 @@
                             <td>
                                 <div class="d-flex align-items-center">
                                     @if($barber->photo)
-                                        <img src="{{ asset('storage/' . $barber->photo) }}" class="rounded-circle me-3 shadow-sm" width="40" height="40" style="object-fit: cover;">
+                                        <img src="{{ asset(Storage::url($barber->photo)) }}" class="rounded-circle me-3 shadow-sm" width="40" height="40" style="object-fit: cover;">
                                     @else
                                         <img src="https://ui-avatars.com/api/?name={{ urlencode($barber->first_name . ' ' . $barber->last_name) }}&background=random" class="rounded-circle me-3 shadow-sm" width="40" height="40">
                                     @endif
@@ -61,11 +61,11 @@
                             <td>
                                 @php
                                     $statusColor = match($barber->status) {
-                                        'En Attente' => 'danger',
                                         'Actif' => 'warning',
+                                        'Dispensée' => 'danger',
                                     };
                                 @endphp
-                                <form action="{{ route('updateStatusBarber', $barber->id) }}" method="POST">
+                                <form action="{{ route('admin.updateStatusBarber', $barber->id) }}" method="POST">
                                     @csrf
                                     @method('PUT')
                                     <button type="submit" class="btn btn-sm btn-{{ $statusColor }} fw-semibold text-white rounded-pill px-3 shadow-sm" style="font-size: 0.75rem;">
@@ -75,7 +75,7 @@
                             </td>
                             <td>
                                 <button class="btn btn-light btn-sm rounded-circle text-success shadow-sm" data-bs-toggle="modal" data-bs-target="#viewBarberModal-{{ $barber->id }}"><i class="bi bi-eye"></i></button>
-                                <a href="{{ route('barberResource.edit', $barber->id) }}" class="btn btn-light btn-sm rounded-circle text-warning shadow-sm"><i class="bi bi-pencil"></i></a>
+                                <a href="{{ route('admin.barberResource.edit', $barber->id) }}" class="btn btn-light btn-sm rounded-circle text-warning shadow-sm"><i class="bi bi-pencil"></i></a>
                                 <button class="btn btn-light btn-sm rounded-circle text-danger shadow-sm" data-bs-toggle="modal" data-bs-target="#deleteBarberModal-{{ $barber->id }}"><i class="bi bi-trash"></i></button>
                             </td>
                         </tr>
@@ -121,7 +121,7 @@
                                     </div>
                                     <div class="modal-footer border-0 pt-0 pb-4 justify-content-center">
                                         <button type="button" class="btn btn-light rounded-3 px-4 me-2" data-bs-dismiss="modal">Fermer</button>
-                                        <a href="{{ route('barberResource.update', $barber->id) }}" class="btn btn-primary rounded-3 px-4 shadow-sm">
+                                        <a href="{{ route('admin.barberResource.edit', $barber->id) }}" class="btn btn-primary rounded-3 px-4 shadow-sm">
                                             <i class="bi bi-pencil-square me-2"></i>Modifier
                                         </a>
                                     </div>
@@ -139,7 +139,7 @@
                                         </div>
                                         <h5 class="fw-bold">Supprimer ?</h5>
                                         <p class="text-muted small">Voulez-vous vraiment supprimer le compte de {{ $barber->first_name }} ?</p>
-                                        <form action="{{ route('barberResource.destroy', $barber->id) }}" method="POST" class="d-grid gap-2 mt-4">
+                                        <form action="{{ route('admin.barberResource.destroy', $barber->id) }}" method="POST" class="d-grid gap-2 mt-4">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger rounded-3">Oui, supprimer</button>
@@ -149,7 +149,6 @@
                                 </div>
                             </div>
                         </div>
-
                     @empty
                         <tr>
                             <td colspan="6" class="text-center py-4 text-muted">

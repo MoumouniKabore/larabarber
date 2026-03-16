@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
             TestimonieSeeder::class,
             BookingSeeder::class,
             BarberSeeder::class,
+            UserSeeder::class,
         ]);
     }
 }

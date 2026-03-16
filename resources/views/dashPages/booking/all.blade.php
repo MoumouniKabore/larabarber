@@ -52,12 +52,12 @@
                                         "Répondu" => 'warning',
                                     };
                                 @endphp
-                                <form action="{{ route('updateStatusBooking', $booking->id) }}" method="POST">
+                                <form action="{{ route('admin.updateStatusBooking', $booking->id) }}" method="POST">
                                     @csrf
                                     @method('PUT')
                                     <button type="submit" class="btn btn-sm btn-{{ $statusColor }} fw-semibold text-white rounded-pill px-3 shadow-sm" 
                                             style="font-size: 0.75rem;" data-bs-toggle="tooltip" title="Changer le statut">
-                                        <i class="bi {{ $booking->status == 'J\'ai Vu' ? 'bi-eye' : 'bi-eye-slash' }} me-1"></i>
+                                        <i class="bi {{ $booking->status == 'Répondu' ? 'bi-eye' : 'bi-eye-slash' }} me-1"></i>
                                         {{ $booking->status }}
                                     </button>
                                 </form>
@@ -123,7 +123,7 @@
                                         </div>
                                         <h5 class="fw-bold">Supprimer ?</h5>
                                         <p class="text-muted small">Voulez-vous vraiment supprimer la réservation de {{ $booking->first_name }} ?</p>
-                                        <form action="{{ route('destroyBooking', $booking->id) }}" method="POST" class="d-grid gap-2 mt-4">
+                                        <form action="{{ route('admin.destroyBooking', $booking->id) }}" method="POST" class="d-grid gap-2 mt-4">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger rounded-3">Oui, supprimer</button>

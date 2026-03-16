@@ -62,7 +62,7 @@
                                 @endphp
 
                                 {{-- Formulaire pour mettre à jour le statut au clic --}}
-                                <form action="{{ route('updateStatusTestimonie', $testimonie->id) }}" method="POST">
+                                <form action="{{ route('admin.updateStatusTestimonie', $testimonie->id) }}" method="POST">
                                     @csrf
                                     @method('PUT')
                                     <button type="submit" class="btn btn-sm btn-{{ $statusColor }} fw-semibold text-white rounded-2 px-3 shadow-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Changer le statut" style="font-size: 0.75rem;">
@@ -145,7 +145,7 @@
                                         <h5 class="fw-bold">Êtes-vous sûr ?</h5>
                                         <p class="text-muted small">Cette action supprimera le témoignage de {{ $testimonie->name }}.</p>
                                         
-                                        <form action="{{ route('destroyTestimonie', $testimonie->id) }}" method="POST" class="d-grid gap-2 mt-4">
+                                        <form action="{{ route('admin.destroyTestimonie', $testimonie->id) }}" method="POST" class="d-grid gap-2 mt-4">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger rounded-3">Oui, supprimer</button>

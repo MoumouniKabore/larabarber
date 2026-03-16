@@ -22,7 +22,7 @@
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="{{ route('index-page') }}">
+                <a class="navbar-brand" href="{{ route('index') }}">
                     <i class="bi bi-scissors me-2"></i>BARBER KING
                 </a>
                 <button class="navbar-toggler" type="button" data-coreui-toggle="collapse" data-coreui-target="#navbarNav">
@@ -31,7 +31,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto align-items-center">
                         <li class="nav-item">
-                            <a href="{{ route('index-page') }}" class="nav-link @if(Route::currentRouteName() == 'index-page') active @endif">Accueil</a>
+                            <a href="{{ route('index') }}" class="nav-link @if(Route::currentRouteName() == 'index') active @endif">Accueil</a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('about') }}" class="nav-link @if(Route::currentRouteName() == 'about') active @endif">À Propos</a>
@@ -77,7 +77,7 @@
                     <div class="col-lg-2 col-md-6">
                         <h5 class="footer-title">Liens Rapides</h5>
                         <ul class="footer-links">
-                            <li><a href="{{ route('index-page') }}">Accueil</a></li>
+                            <li><a href="{{ route('index') }}">Accueil</a></li>
                             <li><a href="{{ route('about') }}">À Propos</a></li>
                             <li><a href="{{ route('services') }}">Services</a></li>
                             <li><a href="{{ route('pricing') }}">Prix</a></li>

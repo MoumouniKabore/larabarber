@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('address');
             $table->string('fonction');
-            $table->string('status')->default('En Attente');
+            $table->string('status')->default('Actif');
             $table->timestamps();
         });
     }

@@ -58,7 +58,7 @@
                                     </div>
                                     
                                     <div class="modal-body p-4">
-                                        <form action="{{ route('updateHour', $hour->id) }}" method="POST">
+                                        <form action="{{ route('admin.updateHour', $hour->id) }}" method="POST">
                                             @csrf
                                             @method('PUT')
                                             

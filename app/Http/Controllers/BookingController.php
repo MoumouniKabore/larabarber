@@ -37,6 +37,6 @@ class BookingController extends Controller
         
         $booking = Booking::findOrFail($idBooking);
         $booking->delete();
-        return redirect()->route('allBooking')->with('success', 'Réservation supprimé avec succès.');
+        return redirect()->route('admin.allBooking')->with('success', 'Réservation supprimé avec succès.');
     }
 }

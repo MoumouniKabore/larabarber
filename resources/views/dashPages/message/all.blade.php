@@ -61,7 +61,7 @@
                                 @endphp
 
                                 {{-- Formulaire pour mettre à jour le statut au clic --}}
-                                <form action="{{ route('updateStatusMessage', $message->id) }}" method="POST">
+                                <form action="{{ route('admin.updateStatusMessage', $message->id) }}" method="POST">
                                     @csrf
                                     @method('PUT')
                                     <button type="submit" class="btn btn-sm btn-{{ $statusColor }} fw-semibold text-white rounded-2 px-3 shadow-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Changer le statut" style="font-size: 0.75rem;">
@@ -135,7 +135,7 @@
                                         <p class="text-muted small">Cette action est irréversible. Le message de {{ $message->first_name }} sera effacé.</p>
                                         
                                         {{-- FORMULAIRE DE SUPPRESSION --}}
-                                        <form action="{{ route('destroyMessage', $message->id) }}" method="POST" class="d-grid gap-2 mt-4">
+                                        <form action="{{ route('admin.destroyMessage', $message->id) }}" method="POST" class="d-grid gap-2 mt-4">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger rounded-3">Oui, supprimer</button>

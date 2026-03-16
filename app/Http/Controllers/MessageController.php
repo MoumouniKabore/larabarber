@@ -37,6 +37,6 @@ class MessageController extends Controller
         
         $message = Message::findOrFail($idMessage);
         $message->delete();
-        return redirect()->route('allMessage')->with('success', 'Message supprimé avec succès.');
+        return redirect()->route('admin.allMessage')->with('success', 'Message supprimé avec succès.');
     }
 }

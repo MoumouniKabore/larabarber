@@ -39,7 +39,7 @@ class BarberController extends Controller
             $data['photo'] = $path;
         }
         Barber::create($data);
-        return redirect()->route('barberResource.index')->with('success', 'Coiffeur créé avec succès.');
+        return redirect()->route('admin.barberResource.index')->with('success', 'Coiffeur créé avec succès.');
     }
 
     /**
@@ -62,20 +62,22 @@ class BarberController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateBarberRequest $request, Barber $barber) {
+    public function update(UpdateBarberRequest $request, Barber $barberResource) {
         $data = $request->validated();
         if ($request->hasFile('photo')) {
             // Nettoyage de l'ancienne photo
-            if ($barber->photo) {
-                Storage::disk('public')->delete($barber->photo);
+            if ($barberResource->photo && Storage::disk('public')->exists($barberResource->photo)) {
+                Storage::disk('public')->delete($barberResource->photo);
             }
             $image = $request->file('photo');
             $filename = time().'.'.$image->getClientOriginalExtension();
             $path = $image->storeAs('barber', $filename, 'public');
             $data['photo'] = $path;
         }
-        $barber->update($data);
-        return redirect()->route('barberResource.index')->with('success', 'Profil mis à jour.');
+        // $updated = $barberResource->update($data);
+        $barberResource->update($data);
+        // dd($updated, $barberResource->wasChanged()); 
+        return redirect()->route('admin.barberResource.index')->with('success', 'Profil mis à jour.');
     }
 
     /**
@@ -83,8 +85,9 @@ class BarberController extends Controller
      */
     public function destroy($barber) {
     
-        $barber = Barber::find($barber);
-        if (Storage::disk('public')->exists($barber->photo)) {
+        $barber = Barber::findOrFail($barber);
+        // PROTECTION : On ne tente de supprimer que si $barber->photo n'est PAS null
+        if (!empty($barber->photo) && Storage::disk('public')->exists($barber->photo)) {
             Storage::disk('public')->delete($barber->photo);
         }
         $barber->delete();
@@ -94,8 +97,8 @@ class BarberController extends Controller
     public function updateStatusBarber(Barber $barber): RedirectResponse {
 
         $newStatus = match($barber->status) {
-            'En Attente' => 'Actif',
-            'Actif' => 'En Attente',
+            'Actif' => 'Dispensée',
+            'Dispensée' => 'Actif',
         };
         $barber->update(['status' => $newStatus]);
         return redirect()->back()->with('success', 'Statut de '. $barber->first_name .' mis à jour.');

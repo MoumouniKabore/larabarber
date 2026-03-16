@@ -38,10 +38,19 @@ class StoreBarberRequest extends FormRequest
             'first_name.max'      => 'Le nom ne doit pas dépasser 20 caractères.',
             'last_name.required'  => 'Le prénom est obligatoire.',
             'last_name.max'       => 'Le prénom ne doit pas dépasser 20 caractères.',
-            'email.required' => 'Le email est obligatoire.',
-            'email.unique' => 'Cette adresse email est déjà utilisée par un autre coiffeur.',
-            'photo.image'  => 'Le fichier doit être une image.',
-            'photo.max'    => "L'image ne doit pas dépasser 2 Mo.",
+            'address.required'     => 'L\'adresse est requise.',
+            'fonction.required'    => 'La fonction du coiffeur est obligatoire.',
+            
+            'email.required' => 'L\'adresse email est obligatoire.',
+            'email.email'    => 'Veuillez entrer une adresse email valide.',
+            'email.unique'   => 'Cette adresse email est déjà utilisée par un autre coiffeur.',
+            
+            'phone.required' => 'Le numéro de téléphone est obligatoire.',
+            'phone.unique'   => 'Ce numéro de téléphone est déjà utilisé.',
+            
+            'photo.image' => 'Le fichier doit être une image.',
+            'photo.mimes' => 'L\'image doit être au format : jpeg, png ou jpg.',
+            'photo.max'   => 'L\'image ne doit pas dépasser 2 Mo.',
         ];
     }
 }

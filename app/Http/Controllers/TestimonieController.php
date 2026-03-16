@@ -44,6 +44,6 @@ class TestimonieController extends Controller
         
         $testimonie = Testimonie::findOrFail($idTestimonie);
         $testimonie->delete();
-        return redirect()->route('allTestimonie')->with('success', 'Avis supprimé avec succès.');
+        return redirect()->route('admin.allTestimonie')->with('success', 'Avis supprimé avec succès.');
     }
 }
