@@ -124,10 +124,11 @@
                     <div class="hours-card mb-4">
                         <h5 class="mb-3"><i class="bi bi-clock me-2" style="color: var(--secondary);"></i>Horaires</h5>
                         <ul class="hours-list">
-                            <li><span class="day">Lun - Jeu</span><span>09:00 - 19:00</span></li>
-                            <li><span class="day">Vendredi</span><span>09:00 - 20:00</span></li>
-                            <li><span class="day">Samedi</span><span>08:00 - 18:00</span></li>
-                            <li><span class="day">Dimanche</span><span class="closed">Fermé</span></li>
+                            @forelse ($hours as $hour)
+                                <li><span class="day">{{ $hour->day }}</span><span>{{ $hour->time }}</span></li>
+                            @empty
+                                
+                            @endforelse
                         </ul>
                     </div>
 

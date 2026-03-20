@@ -66,9 +66,11 @@
                                 <button class="btn btn-light btn-sm rounded-circle text-success" data-bs-toggle="modal" data-bs-target="#viewBookingModal-{{ $booking->id }}">
                                     <i class="bi bi-eye"></i>
                                 </button>
-                                <button class="btn btn-light btn-sm rounded-circle text-danger" data-bs-toggle="modal" data-bs-target="#deleteBookingModal-{{ $booking->id }}">
-                                    <i class="bi bi-trash"></i>
-                                </button>
+                                @can('delete', $booking)
+                                    <button class="btn btn-light btn-sm rounded-circle text-danger" data-bs-toggle="modal" data-bs-target="#deleteBookingModal-{{ $booking->id }}">
+                                        <i class="bi bi-trash"></i>
+                                    </button>                                    
+                                @endcan
                             </td>
                         </tr>
 

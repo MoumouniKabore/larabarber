@@ -5,11 +5,15 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreBarberRequest;
 use App\Http\Requests\UpdateBarberRequest;
 use App\Models\Barber;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
 
 class BarberController extends Controller
 {
+
+    use AuthorizesRequests;
+    
     /**
      * Display a listing of the resource.
      */
@@ -24,6 +28,7 @@ class BarberController extends Controller
      */
     public function create() {
 
+        $this->authorize('create', Barber::class);
         return view('dashPages.barber.add');
     }
 
@@ -31,6 +36,7 @@ class BarberController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(StoreBarberRequest $request) {
+
         $data = $request->validated();
         if ($request->hasFile('photo')) {
             $image = $request->file('photo');
@@ -56,6 +62,7 @@ class BarberController extends Controller
     public function edit($barber) {
 
         $barber = Barber::findOrFail($barber);
+        $this->authorize('update', $barber);
         return view('dashPages.barber.edit', compact('barber'));
     }
 
@@ -63,6 +70,7 @@ class BarberController extends Controller
      * Update the specified resource in storage.
      */
     public function update(UpdateBarberRequest $request, Barber $barberResource) {
+
         $data = $request->validated();
         if ($request->hasFile('photo')) {
             // Nettoyage de l'ancienne photo
@@ -86,6 +94,7 @@ class BarberController extends Controller
     public function destroy($barber) {
     
         $barber = Barber::findOrFail($barber);
+        $this->authorize('delete', $barber);
         // PROTECTION : On ne tente de supprimer que si $barber->photo n'est PAS null
         if (!empty($barber->photo) && Storage::disk('public')->exists($barber->photo)) {
             Storage::disk('public')->delete($barber->photo);

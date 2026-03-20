@@ -76,9 +76,11 @@
                                 <button class="btn btn-light btn-sm rounded-circle text-success" data-bs-toggle="modal" data-bs-target="#viewTestimonyModal-{{ $testimonie->id }}">
                                     <i class="bi bi-eye"></i>
                                 </button>
-                                <button class="btn btn-light btn-sm rounded-circle text-danger" data-bs-toggle="modal" data-bs-target="#deleteTestimonyModal-{{ $testimonie->id }}">
-                                    <i class="bi bi-trash"></i>
-                                </button>
+                                @can('delete', $testimonie)
+                                    <button class="btn btn-light btn-sm rounded-circle text-danger" data-bs-toggle="modal" data-bs-target="#deleteTestimonyModal-{{ $testimonie->id }}">
+                                        <i class="bi bi-trash"></i>
+                                    </button>                                    
+                                @endcan
                             </td>
                         </tr>
 
@@ -91,16 +93,10 @@
                                     
                                     <div class="modal-body text-center pb-4">
                                         <div class="position-relative d-inline-block mb-3">
-                                            @if($testimonie->avatar)
-                                                {{-- L'image existe en base --}}
-                                                <img src="{{ asset(Storage::url($testimonie->photo)) }}" 
-                                                    class="rounded-circle me-3 shadow-sm" 
-                                                    width="90" height="90" alt="{{ $testimonie->name }}">
+                                            @if($testimonie->photo)
+                                                <img src="{{ asset(Storage::url($testimonie->photo)) }}" class="rounded-circle me-3 shadow-sm" width="40" height="40" style="object-fit: cover;">
                                             @else
-                                                {{-- Image par défaut si pas d'avatar --}}
-                                                <img src="https://ui-avatars.com/api/?name={{ urlencode($testimonie->name) }}&background=random" 
-                                                    class="rounded-circle me-3 shadow-sm" 
-                                                    width="90" height="90" alt="{{ $testimonie->name }}">
+                                                <img src="https://ui-avatars.com/api/?name={{ urlencode($testimonie->first_name . ' ' . $testimonie->last_name) }}&background=random" class="rounded-circle me-3 shadow-sm" width="40" height="40">
                                             @endif
                                         </div>
                                         

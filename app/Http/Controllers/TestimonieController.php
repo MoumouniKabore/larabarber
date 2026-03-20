@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreTestimonieRequest;
 use App\Models\Testimonie;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
 class TestimonieController extends Controller
 {
-
+    use AuthorizesRequests;
+    
     public function AllTestimonie(): View {
 
         $testimonies = Testimonie::latest()->get();
@@ -43,6 +45,7 @@ class TestimonieController extends Controller
     public function destroyTestimonie(string $idTestimonie): RedirectResponse {
         
         $testimonie = Testimonie::findOrFail($idTestimonie);
+        $this->authorize('delete', $testimonie);
         $testimonie->delete();
         return redirect()->route('admin.allTestimonie')->with('success', 'Avis supprimé avec succès.');
     }

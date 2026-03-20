@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Message;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\StoreMessageRequest;
+use App\Models\Message;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
 class MessageController extends Controller
 {
+    use AuthorizesRequests;
+    
     public function AllMessage(): View {
 
         $messages = Message::latest()->get();
@@ -36,6 +39,7 @@ class MessageController extends Controller
     public function destroyMessage(string $idMessage): RedirectResponse {
         
         $message = Message::findOrFail($idMessage);
+        $this->authorize('delete', $message);
         $message->delete();
         return redirect()->route('admin.allMessage')->with('success', 'Message supprimé avec succès.');
     }

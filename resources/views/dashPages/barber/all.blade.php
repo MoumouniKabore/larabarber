@@ -10,9 +10,11 @@
         <div>
             <h2 class="fw-bold h4 mb-1">Liste des Coiffeurs</h2>
         </div>
-        <a href="{{ route('admin.barberResource.create') }}" class="btn btn-primary btn-sm rounded-3 px-3 shadow-sm">
-            <i class="bi bi-plus-lg me-1"></i> Nouveau
-        </a>
+        @can('create', App\Models\Barber::class)
+            <a href="{{ route('admin.barberResource.create') }}" class="btn btn-primary btn-sm rounded-3 px-3 shadow-sm">
+                <i class="bi bi-plus-lg me-1"></i> Nouveau
+            </a>
+        @endcan
     </div>
 
     @if(session('success'))
@@ -65,18 +67,27 @@
                                         'Dispensée' => 'danger',
                                     };
                                 @endphp
-                                <form action="{{ route('admin.updateStatusBarber', $barber->id) }}" method="POST">
-                                    @csrf
-                                    @method('PUT')
-                                    <button type="submit" class="btn btn-sm btn-{{ $statusColor }} fw-semibold text-white rounded-pill px-3 shadow-sm" style="font-size: 0.75rem;">
+                                @can('update', $barber)
+                                    <form action="{{ route('admin.updateStatusBarber', $barber->id) }}" method="POST">
+                                        @csrf @method('PUT')
+                                        <button type="submit" class="btn btn-sm btn-{{ $barber->status == 'Actif' ? 'warning' : 'danger' }} rounded-pill px-3 shadow-sm">
+                                            {{ $barber->status }}
+                                        </button>
+                                    </form>
+                                @else
+                                    <span class="badge bg-{{ $barber->status == 'Actif' ? 'warning' : 'danger' }} rounded-pill px-3 py-2">
                                         {{ $barber->status }}
-                                    </button>
-                                </form>
+                                    </span>
+                                @endcan
                             </td>
                             <td>
                                 <button class="btn btn-light btn-sm rounded-circle text-success shadow-sm" data-bs-toggle="modal" data-bs-target="#viewBarberModal-{{ $barber->id }}"><i class="bi bi-eye"></i></button>
-                                <a href="{{ route('admin.barberResource.edit', $barber->id) }}" class="btn btn-light btn-sm rounded-circle text-warning shadow-sm"><i class="bi bi-pencil"></i></a>
-                                <button class="btn btn-light btn-sm rounded-circle text-danger shadow-sm" data-bs-toggle="modal" data-bs-target="#deleteBarberModal-{{ $barber->id }}"><i class="bi bi-trash"></i></button>
+                                @can('update', $barber)
+                                    <a href="{{ route('admin.barberResource.edit', $barber->id) }}" class="btn btn-light btn-sm rounded-circle text-warning shadow-sm"><i class="bi bi-pencil"></i></a>
+                                @endcan
+                                @can('delete', $barber)
+                                    <button class="btn btn-light btn-sm rounded-circle text-danger shadow-sm" data-bs-toggle="modal" data-bs-target="#deleteBarberModal-{{ $barber->id }}"><i class="bi bi-trash"></i></button>
+                                @endcan
                             </td>
                         </tr>
 
@@ -121,9 +132,11 @@
                                     </div>
                                     <div class="modal-footer border-0 pt-0 pb-4 justify-content-center">
                                         <button type="button" class="btn btn-light rounded-3 px-4 me-2" data-bs-dismiss="modal">Fermer</button>
-                                        <a href="{{ route('admin.barberResource.edit', $barber->id) }}" class="btn btn-primary rounded-3 px-4 shadow-sm">
-                                            <i class="bi bi-pencil-square me-2"></i>Modifier
-                                        </a>
+                                        @can('update', $barber)
+                                            <a href="{{ route('admin.barberResource.edit', $barber->id) }}" class="btn btn-primary rounded-3 px-4 shadow-sm">
+                                                <i class="bi bi-pencil-square me-2"></i>Modifier
+                                            </a>
+                                        @endcan
                                     </div>
                                 </div>
                             </div>

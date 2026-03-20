@@ -74,9 +74,11 @@
                                 <button class="btn btn-light btn-sm rounded-circle text-success" data-bs-toggle="modal" data-bs-target="#viewUserModal-{{ $message->id }}">
                                     <i class="bi bi-eye"></i>
                                 </button>
-                                <button class="btn btn-light btn-sm rounded-circle text-danger" data-bs-toggle="modal" data-bs-target="#deleteConfirmModal-{{ $message->id }}">
-                                    <i class="bi bi-trash"></i>
-                                </button>
+                                @can('delete', $message)
+                                    <button class="btn btn-light btn-sm rounded-circle text-danger" data-bs-toggle="modal" data-bs-target="#deleteConfirmModal-{{ $message->id }}">
+                                        <i class="bi bi-trash"></i>
+                                    </button>                                    
+                                @endcan
                             </td>
                         </tr>
 

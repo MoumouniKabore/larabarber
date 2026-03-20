@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             'first_name' => 'Kabore',
             'last_name' => 'Moumouni',
             'phone' => '0565559443',
-            'email' => 'moumounikabore001@gmail.com',
+            'email' => 'moumouni@gmail.com',
             'is_admin' => true,
             'status' => 'Actif',
             'password' => Hash::make('admin123'),

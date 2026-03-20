@@ -80,7 +80,9 @@
                             <td class="text-end">
                                 <button class="btn btn-light btn-sm rounded-circle text-success" data-bs-toggle="modal" data-bs-target="#viewUserModal{{ $user->id }}"><i class="bi bi-eye"></i></button>
                                 <a href="{{ route('admin.userResource.edit', $user->id) }}" class="btn btn-light btn-sm rounded-circle text-warning"><i class="bi bi-pencil"></i></a>
-                                <button class="btn btn-light btn-sm rounded-circle text-danger" data-bs-toggle="modal" data-bs-target="#deleteConfirmModal{{ $user->id }}"><i class="bi bi-trash"></i></button>
+                                @can('delete', $user)
+                                    <button class="btn btn-light btn-sm rounded-circle text-danger" data-bs-toggle="modal" data-bs-target="#deleteConfirmModal{{ $user->id }}"><i class="bi bi-trash"></i></button>                    
+                                @endcan
                             </td>
                         </tr>
 

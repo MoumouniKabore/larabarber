@@ -70,7 +70,9 @@
             </div>
             <div class="nav flex-column h-100">
                 <a href="{{ route('admin.dashboardIndex') }}" class="nav-link @if(Route::currentRouteName() == 'admin.dashboardIndex') active  @endif"><i class="bi bi-grid-1x2-fill"></i> Tableau de bord</a>
-                <a href="{{ route('admin.userResource.index') }}" class="nav-link @if(Route::currentRouteName() == 'admin.userResource.index') active  @endif"><i class="bi bi-person-check"></i> Utilisateurs</a>
+                @can('viewAny', App\Models\User::class)
+                    <a href="{{ route('admin.userResource.index') }}" class="nav-link @if(Route::currentRouteName() == 'admin.userResource.index') active  @endif"><i class="bi bi-person-check"></i> Utilisateurs</a>                    
+                @endcan
                 <a href="{{ route('admin.barberResource.index') }}" class="nav-link @if(Route::currentRouteName() == 'admin.admin.barberResource.index') active  @endif"><i class="bi bi-person-badge"></i> Coiffeurs</a>
                 <a href="{{ route('admin.allHour') }}" class="nav-link @if(Route::currentRouteName() == 'admin.allHour') active  @endif"><i class="bi bi-clock-history"></i> Heures Ouverture</a>
                 <a href="{{ route('admin.allBooking') }}" class="nav-link @if(Route::currentRouteName() == 'admin.allBooking') active  @endif"><i class="bi bi-calendar-check"></i> Réservation</a>
@@ -93,7 +95,9 @@
             <div class="offcanvas-body p-0 py-3">
                 <div class="nav flex-column h-100">
                     <a href="{{ route('admin.dashboardIndex') }}" class="nav-link @if(Route::currentRouteName() == 'admin.dashboardIndex') active  @endif"><i class="bi bi-grid-1x2-fill"></i> Tableau de bord</a>
-                    <a href="{{ route('admin.userResource.index') }}" class="nav-link @if(Route::currentRouteName() == 'admin.userResource.index') active  @endif"><i class="bi bi-person-check"></i> Utilisateurs</a>
+                    @can('viewAny', App\Models\User::class)
+                        <a href="{{ route('admin.userResource.index') }}" class="nav-link @if(Route::currentRouteName() == 'admin.userResource.index') active  @endif"><i class="bi bi-person-check"></i> Utilisateurs</a>
+                    @endcan
                     <a href="{{ route('admin.barberResource.index') }}" class="nav-link @if(Route::currentRouteName() == 'admin.barberResource.index') active  @endif"><i class="bi bi-person-badge"></i> Coiffeurs</a>
                     <a href="{{ route('admin.allHour') }}" class="nav-link @if(Route::currentRouteName() == 'admin.allHour') active  @endif"><i class="bi bi-clock-history"></i> Heures Ouverture</a>
                     <a href="{{ route('admin.allBooking') }}" class="nav-link @if(Route::currentRouteName() == 'admin.allBooking') active  @endif"><i class="bi bi-calendar-check"></i> Réservation</a>

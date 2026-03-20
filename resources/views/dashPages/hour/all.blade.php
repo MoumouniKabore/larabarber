@@ -71,12 +71,13 @@
                                                 <div class="col-12">
                                                     <label class="form-label small fw-bold text-muted">Plage Horaire</label>
                                                     <select name="time" class="form-select rounded-3 p-2 border-primary text-primary fw-bold">
-                                                        <option value="08h00 - 18h00" {{ $hour->time == '08h00 - 18h00' ? 'selected' : '' }}>08h00 - 18h00</option>
-                                                        <option value="08h00 - 19h00" {{ $hour->time == '08h00 - 19h00' ? 'selected' : '' }}>08h00 - 19h00</option>
-                                                        <option value="08h00 - 20h00" {{ $hour->time == '08h00 - 20h00' ? 'selected' : '' }}>08h00 - 20h00</option>
-                                                        <option value="09h00 - 18h00" {{ $hour->time == '09h00 - 18h00' ? 'selected' : '' }}>09h00 - 18h00</option>
-                                                        <option value="09h00 - 19h00" {{ $hour->time == '09h00 - 19h00' ? 'selected' : '' }}>09h00 - 19h00</option>
-                                                        <option value="09h00 - 20h00" {{ $hour->time == '09h00 - 20h00' ? 'selected' : '' }}>09h00 - 20h00</option>
+                                                        <option value="08:00 - 18:00" {{ $hour->time == '08:00 - 18:00' ? 'selected' : '' }}>08:00 - 18:00</option>
+                                                        <option value="08:00 - 19:00" {{ $hour->time == '08:00 - 19:00' ? 'selected' : '' }}>08:00 - 19:00</option>
+                                                        <option value="08:00 - 20:00" {{ $hour->time == '08:00 - 20:00' ? 'selected' : '' }}>08:00 - 20:00</option>
+                                                        <option value="09:00 - 18:00" {{ $hour->time == '09:00 - 18:00' ? 'selected' : '' }}>09:00 - 18:00</option>
+                                                        <option value="09:00 - 19:00" {{ $hour->time == '09:00 - 19:00' ? 'selected' : '' }}>09:00 - 19:00</option>
+                                                        <option value="09:00 - 20:00" {{ $hour->time == '09:00 - 20:00' ? 'selected' : '' }}>09:00 - 20:00</option>
+                                                        <option value="09:00 - 14:00" {{ $hour->time == '09:00 - 14:00' ? 'selected' : '' }}>09:00 - 14:00</option>
                                                         <option value="Démi-journée" {{ $hour->time == 'Démi-journée' ? 'selected' : '' }}>Démi-journée</option>
                                                         <option value="Fermé" {{ $hour->time == 'Fermé' ? 'selected' : '' }}>Fermé</option>
                                                     </select>

@@ -3,7 +3,7 @@
 namespace App\Policies;
 
 use App\Models\User;
-use Illuminate\Auth\Access\Response;
+// use Illuminate\Auth\Access\Response;
 
 class UserPolicy
 {
@@ -12,7 +12,7 @@ class UserPolicy
      */
     public function viewAny(User $user): bool
     {
-        return false;
+        return $user->is_admin == true;
     }
 
     /**
@@ -42,9 +42,9 @@ class UserPolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, User $model): bool
+    public function delete(User $user, User $model)
     {
-        return false;
+        return $user->is_admin && $user->id !== $model->id;
     }
 
     /**

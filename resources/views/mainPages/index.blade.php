@@ -159,60 +159,31 @@
                 <div class="section-divider"></div>
             </div>
             
-            <div class="row g-4 justify-content-center">
-                <!-- Membre 1 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="team-card">
-                        <div class="team-image">
-                            <img src="{{ asset('pageStyle/images/image3.png') }}" alt="Marcus Johnson">
-                        </div>
-                        <div class="team-info">
-                            <h5>Marcus Johnson</h5>
-                            <span>Master Barber</span>
-                            <div class="team-social">
-                                <a href="#"><i class="bi bi-instagram"></i></a>
-                                <a href="#"><i class="bi bi-facebook"></i></a>
-                                <a href="#"><i class="bi bi-twitter"></i></a>
+            <div class="row g-5 justify-content-center">
+                @forelse ($barbers as $barber)
+                    <div class="col-lg-4 col-md-6">
+                        <div class="team-card">
+                            <div class="team-image">
+                                @if($barber->photo)
+                                    <img src="{{ asset(Storage::url($barber->photo)) }}" class="me-3 shadow-sm" width="40" height="40" style="object-fit: cover;">
+                                @else
+                                    <img src="https://ui-avatars.com/api/?name={{ urlencode($barber->first_name . ' ' . $barber->last_name) }}&background=random" class="me-3 shadow-sm" width="40" height="40">
+                                @endif
+                            </div>
+                            <div class="team-info">
+                                <h5>{{ $barber->first_name }} {{ $barber->last_name }}</h5>
+                                <span>{{ $barber->fonction }}</span>
+                                <div class="team-social">
+                                    <a href="#"><i class="bi bi-instagram"></i></a>
+                                    <a href="#"><i class="bi bi-facebook"></i></a>
+                                    <a href="#"><i class="bi bi-twitter"></i></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                
-                <!-- Membre 2 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="team-card">
-                        <div class="team-image">
-                            <img src="{{ asset('pageStyle/images/image4.png') }}" alt="David Martin">
-                        </div>
-                        <div class="team-info">
-                            <h5>David Martin</h5>
-                            <span>Senior Barber</span>
-                            <div class="team-social">
-                                <a href="#"><i class="bi bi-instagram"></i></a>
-                                <a href="#"><i class="bi bi-facebook"></i></a>
-                                <a href="#"><i class="bi bi-twitter"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Membre 3 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="team-card">
-                        <div class="team-image">
-                            <img src="{{ asset('pageStyle/images/image5.png') }}" alt="James Wilson">
-                        </div>
-                        <div class="team-info">
-                            <h5>James Wilson</h5>
-                            <span>Barber & Colorist</span>
-                            <div class="team-social">
-                                <a href="#"><i class="bi bi-instagram"></i></a>
-                                <a href="#"><i class="bi bi-facebook"></i></a>
-                                <a href="#"><i class="bi bi-twitter"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    </div>                    
+                @empty
+                    <p>ejhherge</p>
+                @endforelse
             </div>
         </div>
     </section>
@@ -335,34 +306,14 @@
                         <h2 class="section-title">Heures d'<span>Ouverture</span></h2>
                         <div class="hours-card mt-4">
                             <ul class="hours-list">
-                                <li>
-                                    <span class="day">Lundi</span>
-                                    <span class="time">09:00 - 19:00</span>
-                                </li>
-                                <li>
-                                    <span class="day">Mardi</span>
-                                    <span class="time">09:00 - 19:00</span>
-                                </li>
-                                <li>
-                                    <span class="day">Mercredi</span>
-                                    <span class="time">09:00 - 19:00</span>
-                                </li>
-                                <li>
-                                    <span class="day">Jeudi</span>
-                                    <span class="time">09:00 - 20:00</span>
-                                </li>
-                                <li>
-                                    <span class="day">Vendredi</span>
-                                    <span class="time">09:00 - 20:00</span>
-                                </li>
-                                <li>
-                                    <span class="day">Samedi</span>
-                                    <span class="time">08:00 - 18:00</span>
-                                </li>
-                                <li>
-                                    <span class="day">Dimanche</span>
-                                    <span class="time closed">Fermé</span>
-                                </li>
+                                @forelse ($hours as $hour)
+                                    <li>
+                                        <span class="day">{{ $hour->day }}</span>
+                                        <span class="time">{{ $hour->time }}</span>
+                                    </li>   
+                                @empty
+                                    <p>xftyjr</p>
+                                @endforelse
                             </ul>
                         </div>
                     </div>
@@ -464,74 +415,31 @@
                     </button>
                 </div>
                 <div class="slider-track">
-                    <div class="slider-item testimonial-card">
-                        <div class="testimonial-rating">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                        </div>
-                        <p class="testimonial-text">"Le meilleur salon de coiffure que j'ai trouvé. Service impeccable, ambiance super et résultat toujours au top. Je recommande à 100%!"</p>
-                        <div class="testimonial-author">
-                            <img src="{{ asset('pageStyle/images/image3.png') }}" alt="Client">
-                            <div>
-                                <h6>Pierre Dubois</h6>
-                                <span>Client régulier</span>
+                    @forelse ($testimonies as $testimonie)
+                        <div class="slider-item testimonial-card">
+                            <div class="testimonial-rating">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
                             </div>
-                        </div>
-                    </div>
-                    <div class="slider-item testimonial-card">
-                        <div class="testimonial-rating">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                        </div>
-                        <p class="testimonial-text">"Ambiance chaleureuse et professionnalisme au rendez-vous. Ma barbe n'a jamais été aussi bien entretenue. Merci à toute l'équipe!"</p>
-                        <div class="testimonial-author">
-                            <img src="{{ asset('pageStyle/images/image4.png') }}" alt="Client">
-                            <div>
-                                <h6>Marc Laurent</h6>
-                                <span>Client depuis 2 ans</span>
+                            <p class="testimonial-text">"{{ $testimonie->message }}"</p>
+                            <div class="testimonial-author">
+                                    @if($testimonie->photo)
+                                        <img src="{{ asset(Storage::url($testimonie->photo)) }}" class="rounded-circle me-3 shadow-sm" width="40" height="40" style="object-fit: cover;">
+                                    @else
+                                        <img src="https://ui-avatars.com/api/?name={{ urlencode($testimonie->first_name . ' ' . $testimonie->last_name) }}&background=random" class="rounded-circle me-3 shadow-sm" width="40" height="40">
+                                    @endif
+                                <div>
+                                    <h6>{{ $testimonie->first_name }} {{ $testimonie->last_name }}</h6>
+                                    <span>Client régulier</span>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="slider-item testimonial-card">
-                        <div class="testimonial-rating">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                        </div>
-                        <p class="testimonial-text">"Excellente expérience à chaque visite. Les barbiers sont de vrais artistes qui comprennent exactement ce que vous voulez."</p>
-                        <div class="testimonial-author">
-                            <img src="{{ asset('pageStyle/images/image5.png') }}" alt="Client">
-                            <div>
-                                <h6>Antoine Moreau</h6>
-                                <span>Client VIP</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slider-item testimonial-card">
-                        <div class="testimonial-rating">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star"></i>
-                        </div>
-                        <p class="testimonial-text">"Super salon avec une équipe sympathique. J'adore l'attention aux détails et les conseils personnalisés pour l'entretien."</p>
-                        <div class="testimonial-author">
-                            <img src="{{ asset('pageStyle/images/image12.png') }}" alt="Client">
-                            <div>
-                                <h6>Lucas Bernard</h6>
-                                <span>Nouveau client</span>
-                            </div>
-                        </div>
-                    </div>
+                        </div>                        
+                    @empty
+                        <p>Hello</p>
+                    @endforelse
                 </div>
                 <div class="carousel-controls">
                     <button class="carousel-btn prev-btn"><i class="bi bi-chevron-left"></i></button>

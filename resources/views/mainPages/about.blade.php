@@ -102,59 +102,30 @@
             </div>
             
             <div class="row g-4 justify-content-center">
-                <!-- Membre 1 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="team-card">
-                        <div class="team-image">
-                            <img src="{{ asset('pageStyle/images/image3.png') }}" alt="Marcus Johnson">
-                        </div>
-                        <div class="team-info">
-                            <h5>Marcus Johnson</h5>
-                            <span>Master Barber</span>
-                            <div class="team-social">
-                                <a href="#"><i class="bi bi-instagram"></i></a>
-                                <a href="#"><i class="bi bi-facebook"></i></a>
-                                <a href="#"><i class="bi bi-twitter"></i></a>
+                @forelse ($barbers as $barber)
+                    <div class="col-lg-4 col-md-6">
+                        <div class="team-card">
+                            <div class="team-image">
+                                @if($barber->photo)
+                                    <img src="{{ asset(Storage::url($barber->photo)) }}" class="me-3 shadow-sm" width="40" height="40" style="object-fit: cover;">
+                                @else
+                                    <img src="https://ui-avatars.com/api/?name={{ urlencode($barber->first_name . ' ' . $barber->last_name) }}&background=random" class="me-3 shadow-sm" width="40" height="40">
+                                @endif
+                            </div>
+                            <div class="team-info">
+                                <h5>{{ $barber->first_name }} {{ $barber->last_name }}</h5>
+                                <span>{{ $barber->fonction }}</span>
+                                <div class="team-social">
+                                    <a href="#"><i class="bi bi-instagram"></i></a>
+                                    <a href="#"><i class="bi bi-facebook"></i></a>
+                                    <a href="#"><i class="bi bi-twitter"></i></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                
-                <!-- Membre 2 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="team-card">
-                        <div class="team-image">
-                            <img src="{{ asset('pageStyle/images/image4.png') }}" alt="David Martin">
-                        </div>
-                        <div class="team-info">
-                            <h5>David Martin</h5>
-                            <span>Senior Barber</span>
-                            <div class="team-social">
-                                <a href="#"><i class="bi bi-instagram"></i></a>
-                                <a href="#"><i class="bi bi-facebook"></i></a>
-                                <a href="#"><i class="bi bi-twitter"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Membre 3 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="team-card">
-                        <div class="team-image">
-                            <img src="{{ asset('pageStyle/images/image5.png') }}" alt="James Wilson">
-                        </div>
-                        <div class="team-info">
-                            <h5>James Wilson</h5>
-                            <span>Barber & Colorist</span>
-                            <div class="team-social">
-                                <a href="#"><i class="bi bi-instagram"></i></a>
-                                <a href="#"><i class="bi bi-facebook"></i></a>
-                                <a href="#"><i class="bi bi-twitter"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    </div>                    
+                @empty
+                    <p>ejhherge</p>
+                @endforelse
             </div>
         </div>
     </section>

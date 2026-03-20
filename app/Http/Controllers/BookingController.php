@@ -4,12 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreBookingRequest;
 use App\Models\Booking;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 // use Illuminate\Http\Request;
 
 class BookingController extends Controller
 {
+    use AuthorizesRequests;
+    
     public function AllBooking(): View {
 
         $bookings = Booking::latest()->get();
@@ -36,6 +39,7 @@ class BookingController extends Controller
     public function destroyBooking(string $idBooking): RedirectResponse {
         
         $booking = Booking::findOrFail($idBooking);
+        $this->authorize('delete', $booking);
         $booking->delete();
         return redirect()->route('admin.allBooking')->with('success', 'Réservation supprimé avec succès.');
     }

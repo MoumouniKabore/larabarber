@@ -40,7 +40,7 @@
                             <a href="{{ route('services') }}" class="nav-link @if(Route::currentRouteName() == 'services') active @endif">Services</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('pricing') }}" class="nav-link @if(Route::currentRouteName() == 'princing') active @endif">Prix</a>
+                            <a href="{{ route('pricing') }}" class="nav-link @if(Route::currentRouteName() == 'pricing') active @endif">Prix</a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('galleries') }}" class="nav-link @if(Route::currentRouteName() == 'galleries') active @endif">Galerie</a>

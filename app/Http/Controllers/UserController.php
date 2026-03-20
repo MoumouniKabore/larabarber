@@ -5,13 +5,15 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\RedirectResponse;
-// use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
+    use AuthorizesRequests;
+    
     /**
      * Display a listing of the resource.
      */
@@ -102,10 +104,11 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($barber) {
+    public function destroy($user) {
         
-        $user = User::findOrFail($barber);
-
+        $user = User::findOrFail($user);
+        
+        $this->authorize('delete', $user);
         // Suppression de la photo du stockage
         if (!empty($user->photo) && Storage::disk('public')->exists($user->photo)) {
             Storage::disk('public')->delete($user->photo);

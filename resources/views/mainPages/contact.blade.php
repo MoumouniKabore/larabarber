@@ -136,7 +136,7 @@
                             </div>
                             <div>
                                 <h5>Horaires</h5>
-                                <p>Lun - Ven: 09:00 - 19:00<br>Samedi: 08:00 - 18:00<br>Dimanche: Fermé</p>
+                                <p>Lun - Jeu : {{ $hour1->time }}<br>Vendredi : {{ $hour2->time }}<br>Samedi : {{ $hour3->time }}<br>Dimanche : {{ $hour4->time }}</p>
                             </div>
                         </div>
 
