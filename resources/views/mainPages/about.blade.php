@@ -30,7 +30,7 @@
                     <div class="about-content">
                         <p class="section-subtitle">Notre Histoire</p>
                         <h2 class="section-title">Une Passion pour l'<span>Excellence</span></h2>
-                        <p class="text-muted">Fondé en 2008 par Marcus Johnson, Barber King est né d'une passion profonde pour l'art de la coiffure masculine. Ce qui a commencé comme un petit salon est devenu aujourd'hui une référence incontournable.</p>
+                        <p class="text-muted">Fondé en 2008 par Marcus Johnson, Lara Barber est né d'une passion profonde pour l'art de la coiffure masculine. Ce qui a commencé comme un petit salon est devenu aujourd'hui une référence incontournable.</p>
                         <p class="text-muted">Notre philosophie est simple : chaque client mérite une attention particulière et un service d'exception. Nous croyons que la coiffure est bien plus qu'un simple service, c'est une expérience.</p>
                         <p class="text-muted">Au fil des années, nous avons formé une équipe de barbiers passionnés, tous experts dans leur domaine, qui partagent notre vision de l'excellence.</p>
                         <div class="about-stats">
@@ -171,7 +171,7 @@
                 <div class="d-flex justify-content-center">
                     <div class="cta-content text-center">
                         <h2>Prêt à Nous Rendre Visite ?</h2>
-                        <p>Réservez votre créneau et vivez l'expérience Barber King</p>
+                        <p>Réservez votre créneau et vivez l'expérience Lara Barber</p>
                     </div>
                 </div>
                 <div class="d-flex justify-content-center">

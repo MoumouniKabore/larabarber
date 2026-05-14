@@ -23,7 +23,7 @@
         <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="{{ route('index') }}">
-                    <i class="bi bi-scissors me-2"></i>BARBER KING
+                    <i class="bi bi-scissors me-2"></i>LARA BARBER
                 </a>
                 <button class="navbar-toggler" type="button" data-coreui-toggle="collapse" data-coreui-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
@@ -64,7 +64,7 @@
                 <div class="row g-4">
                     <div class="col-lg-4 col-md-6">
                         <div class="footer-brand">
-                            <i class="bi bi-scissors me-2"></i>BARBER KING
+                            <i class="bi bi-scissors me-2"></i>LARA BARBER
                         </div>
                         <p class="footer-text">Votre destination pour une coupe parfaite et une expérience de barbier authentique.</p>
                         <div class="social-links">
@@ -104,7 +104,7 @@
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <p>&copy; 2024 Barber King. Tous droits réservés.</p>
+                    <p>&copy; 2024 Lara barber. Tous droits réservés.</p>
                 </div>
             </div>
         </footer>

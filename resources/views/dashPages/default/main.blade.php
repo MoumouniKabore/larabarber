@@ -117,7 +117,7 @@
                         <i class="bi bi-list"></i>
                     </button>
 
-                    <form class="d-none d-md-flex flex-grow-1 max-w-400">
+                    <form class="d-none d-md-flex max-w-400">
                         <div class="input-group" style="max-width: 300px;">
                             <span class="input-group-text bg-light border-0"><i class="bi bi-search text-muted"></i></span>
                             <input class="form-control bg-light border-0" type="search" placeholder="Rechercher...">

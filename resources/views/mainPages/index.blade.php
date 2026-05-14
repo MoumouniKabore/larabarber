@@ -12,7 +12,7 @@
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-7">
                     <div class="hero-content text-center">
-                        <p class="section-subtitle">Bienvenue chez Barber King</p>
+                        <p class="section-subtitle">Bienvenue chez Lara Barber</p>
                         <h1>L'Art de la <span>Coiffure</span> Masculine</h1>
                         <p>Découvrez une expérience unique de coiffure masculine. Notre équipe de barbiers experts vous offre des coupes modernes et un service personnalisé.</p>
                         <div class="d-flex flex-wrap gap-3 d-flex justify-content-center">
@@ -49,7 +49,7 @@
                     <div class="about-content">
                         <p class="section-subtitle">À Propos de Nous</p>
                         <h2 class="section-title">Plus de 15 Ans d'<span>Excellence</span></h2>
-                        <p class="text-muted">Fondé en 2008, Barber King est devenu la référence de la coiffure masculine. Notre philosophie ? Allier tradition et modernité pour offrir à chaque client une expérience unique.</p>
+                        <p class="text-muted">Fondé en 2008, Lara Barber est devenu la référence de la coiffure masculine. Notre philosophie ? Allier tradition et modernité pour offrir à chaque client une expérience unique.</p>
                         <p class="text-muted">Notre équipe de barbiers passionnés maîtrise toutes les techniques, des coupes classiques aux styles les plus contemporains.</p>
                         <div class="about-stats">
                             <div class="stat-item text-center">
