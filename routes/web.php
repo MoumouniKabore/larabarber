@@ -27,6 +27,8 @@ use Illuminate\Support\Facades\Route;
     Route::post('login', [LoginController::class, 'login']);
 // End Routes d'authentification
 
+// Enregistremant avis client : La route doit être hors du middlware pour eviter la connexion lors de l'envoie
+        Route::post('storeTestimonie', [TestimonieController::class, 'storeTestimonie'])->name('storeTestimonie');
 
 // Dash Page 
     Route::middleware('auth', 'admin')->name('admin.')->group(function() {
@@ -54,7 +56,6 @@ use Illuminate\Support\Facades\Route;
 
         // testimonie
         Route::get('allTestimonie', [TestimonieController::class, 'allTestimonie'])->name('allTestimonie');
-        Route::post('storeTestimonie', [TestimonieController::class, 'storeTestimonie'])->name('storeTestimonie');
         Route::put('updateStatusTestimonie/{testimonie}', [TestimonieController::class, 'updateStatusTestimonie'])->name('updateStatusTestimonie');
         Route::delete('destroyTestimonie/{id}', [TestimonieController::class, 'destroyTestimonie'])->name('destroyTestimonie');
 
