@@ -482,7 +482,7 @@
                     <h5 class="modal-title" id="modalTitle">Votre Témoignage</h5>
                     <button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="{{ route('admin.storeTestimonie') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('storeTestimonie') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-body">
                         <div class="row g-3">
