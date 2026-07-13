@@ -38,7 +38,7 @@
                 <div class="col-lg-7">
                     <div class="booking-form">
                         <h3 class="mb-4">Formulaire de Réservation</h3>
-                        <form action="{{ route('admin.storeBooking') }}" method="POST">
+                        <form action="{{ route('storeBooking') }}" method="POST">
                             @csrf
                             <div class="row g-4">
                                 <!-- Personal Info -->

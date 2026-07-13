@@ -325,7 +325,7 @@
                         <p class="section-subtitle">Réservation</p>
                         <h2 class="section-title">Prenez <span>Rendez-vous</span></h2>
                         <div class="booking-form mt-4">
-                            <form action="{{ route('admin.storeBooking') }}" method="POST">
+                            <form action="{{ route('storeBooking') }}" method="POST">
                                 @csrf
                                 <div class="row g-3 mb-4">
                                     <div class="col-md-6">

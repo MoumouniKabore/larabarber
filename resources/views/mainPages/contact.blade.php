@@ -34,7 +34,7 @@
                         <h3 class="mb-4"><i class="bi bi-envelope me-2" style="color: var(--secondary);"></i>Envoyez-nous un Message</h3>
 
 
-                        <form action="{{ route('admin.storeMessage') }}" method="POST">
+                        <form action="{{ route('storeMessage') }}" method="POST">
                             @csrf
                             <div class="row g-4">
                                 <div class="col-md-6">
