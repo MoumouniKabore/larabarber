@@ -27,8 +27,10 @@ use Illuminate\Support\Facades\Route;
     Route::post('login', [LoginController::class, 'login']);
 // End Routes d'authentification
 
-// Enregistremant avis client : La route doit être hors du middlware pour eviter la connexion lors de l'envoie
+// La route doit être hors du middlware pour eviter la connexion lors de l'envoie
         Route::post('storeTestimonie', [TestimonieController::class, 'storeTestimonie'])->name('storeTestimonie');
+        Route::post('storeMessage', [MessageController::class, 'storeMessage'])->name('storeMessage');
+        Route::post('storeBooking', [BookingController::class, 'storeBooking'])->name('storeBooking');
 
 // Dash Page 
     Route::middleware('auth', 'admin')->name('admin.')->group(function() {
@@ -50,7 +52,6 @@ use Illuminate\Support\Facades\Route;
 
         // booking
         Route::get('allBooking', [BookingController::class, 'allBooking'])->name('allBooking');
-        Route::post('storeBooking', [BookingController::class, 'storeBooking'])->name('storeBooking');
         Route::put('updateStatusBooking/{booking}', [BookingController::class, 'updateStatusBooking'])->name('updateStatusBooking');
         Route::delete('destroyBooking/{id}', [BookingController::class, 'destroyBooking'])->name('destroyBooking');
 
@@ -61,7 +62,6 @@ use Illuminate\Support\Facades\Route;
 
         // message
         Route::get('allMessage', [MessageController::class, 'allMessage'])->name('allMessage');
-        Route::post('storeMessage', [MessageController::class, 'storeMessage'])->name('storeMessage');
         Route::put('updateStatusMessage/{message}', [MessageController::class, 'updateStatusMessage'])->name('updateStatusMessage');
         Route::delete('destroyMessage/{id}', [MessageController::class, 'destroyMessage'])->name('destroyMessage');
 
